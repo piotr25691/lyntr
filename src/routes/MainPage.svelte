@@ -284,7 +284,7 @@
 					class="md:max-w-1/3 flex w-full min-w-full flex-row items-start gap-2 px-2 py-2 md:w-auto md:flex-col md:pt-0"
 				>
 					<button class="mt-5 hidden md:block" on:click={goHome}>
-						<img class="mb-5 size-20 cursor-pointer" src="/logo.svg" alt="Logo" />
+						<img class="mb-5 size-20 cursor-pointer" src="/dancing-h.gif" alt="Logo" />
 					</button>
 					<Navigation {handle} {id} />
 					<div class="hidden md:flex md:w-full">

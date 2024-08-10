@@ -117,7 +117,7 @@
 	let copied = false;
 	let timeoutId: ReturnType<typeof setTimeout>;
 
-	const url = `${$page.url.origin}?id=${id}`;
+	const url = `${$page.url.origin}/?id=${id}`;
 	const shareData = {
 		title: 'Share Lynt',
 		text:
