@@ -1,14 +1,14 @@
-<img style="width: 128px; height: 128px" src="static/logo.png" /><h1 style="font-size: 48px"><a href="https://lyntr.com">Lyntr.com</a> - the micro-blogging social media with an IQ test</h1>
-[Privacy Policy](https://lyntr.com/privacy) | [Terms of Service](https://lyntr.com/tos) | [License](https://github.com/face-hh/lyntr/blob/master/LICENSE.md) | [YouTube video](https://youtu.be/-D2L3gHqcUA)
+<img style="width: 128px; height: 128px" src="static/dancing-h.gif" /><h1 style="font-size: 48px"><a href="https://lyntr.jnnj.xyz">lyntr.jnnj.xyz</a> - the micro-blogging social media with an IQ test</h1>
+[Privacy Policy](https://lyntr.jnnj.xyz/privacy) | [Terms of Service](https://lyntr.jnnj.xyz/tos) | [License](https://github.com/CodeName-Anti/lyntr/blob/master/LICENSE.md) | [YouTube video](https://youtu.be/-D2L3gHqcUA)
 
 # Images
 Dark mode - Lyntr
 
-![Lyntr.com](github-assets/banner.png)
+![lyntr.jnnj.xyz](github-assets/banner.png)
 
 Light mode - Lyntr
 
-![Lyntr.com - white](github-assets/banner_white.png)
+![lyntr.jnnj.xyz - white](github-assets/banner_white.png)
 
 # Issues
 PLEASE before you make a issue read all the open and closed issues, use the search make sure a similar issue hasn't been posted by someone else before you make a new issue!
