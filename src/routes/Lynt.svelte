@@ -321,7 +321,7 @@
 	</Sheet.Content>
 </Sheet.Root>
 
-<div on:click|stopPropagation={() => openLynt(id)} class="mb-2 w-full text-left">
+<div on:click|stopPropagation={() => openLynt(id)} class="mb-2 w-full text-left lynt-id-{id}">
 	<div
 		class="flex w-full gap-3 overflow-hidden rounded-xl bg-lynt-foreground p-3 transition-colors hover:bg-border"
 	>
