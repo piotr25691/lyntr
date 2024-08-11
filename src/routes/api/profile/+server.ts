@@ -118,8 +118,8 @@ let questions: Question[] = [
 	},
 	{
 		id: 'British',
-		condition: (_: any) => {
-			return 0;
+		condition: (input: any) => {
+			return sanitizeBool(input) ? -10 : 1;
 		}
 	},
 	{
