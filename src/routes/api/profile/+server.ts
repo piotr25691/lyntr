@@ -5,7 +5,7 @@ import { Snowflake } from 'nodejs-snowflake';
 
 import { verifyAuthJWT, createAuthJWT } from '@/server/jwt';
 import { db } from '@/server/db';
-import { followers, likes, lynts, notifications, users, history } from '@/server/schema';
+import { followers, likes, lynts, notifications, users, history, messages } from '@/server/schema';
 import { eq, inArray, sql } from 'drizzle-orm';
 import { minioClient } from '@/server/minio';
 import { deleteLynt, uploadAvatar } from '../util';
@@ -384,6 +384,13 @@ export const DELETE: RequestHandler = async ({ request, cookies }) => {
 		await db.transaction(async (tx) => {
 			// Delete notifications
 			console.log('Account deletion - ' + userId);
+
+			// Delete messages
+			console.time('Deleting all messages');
+			await tx.delete(messages).where(eq(messages.sender_id, userId));
+			await tx.delete(messages).where(eq(messages.receiver_id, userId));
+			console.timeEnd('Deleting all messages');
+
 			console.time('Getting all lynts');
 			const userLynts = await tx
 				.select({ id: lynts.id })
