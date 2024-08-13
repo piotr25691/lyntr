@@ -263,25 +263,24 @@ export const GET: RequestHandler = async ({ url }) => {
 	}
 
 	try {
-		const query = sql`
-            SELECT 
-                u.id, 
-                u.handle, 
-                u.created_at, 
-                u.username, 
-                u.iq, 
-                u.verified,
-                u.bio,
-                (SELECT COUNT(*) FROM ${followers} WHERE user_id = u.id) AS followers_count,
-                (SELECT COUNT(*) FROM ${followers} WHERE follower_id = u.id) AS following_count
-            FROM ${users} u
-            WHERE ${userHandle ? sql`u.handle = ${userHandle}` : sql`u.id = ${userId}`} AND u.banned = false
-            LIMIT 1
-        `;
 
-		const result = await db.execute(query);
-		const user = result[0];
-
+		const response = await db
+			.select({
+			    id: users.id,
+			    handle: users.handle,
+			    created_at: users.created_at,
+			    username: users.username,
+			    iq: users.iq,
+			    verified: users.verified,
+			    bio: users.bio,
+			    followers_count: db.count().from(followers).where(eq(followers.user_id, users.id)),
+			    following_count: db.count().from(followers).where(eq(followers.follower_id, users.id))
+			})
+			.from(users)
+			.where(and(eq(userHandle, users.handle), eq(users.banned, false))
+			.or(and(eq(userId, users.id), eq(users.banned, false)))
+			.limit(1);
+		const user = response[0]
 		if (!user) {
 			return json({ error: 'User not found' }, { status: 404 });
 		}
