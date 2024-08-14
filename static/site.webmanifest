@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Lyntr",
+    "short_name": "Lyntr",
+    "start_url": "https://lyntr.jnnj.xyz/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
