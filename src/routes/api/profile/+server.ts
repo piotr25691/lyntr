@@ -6,7 +6,7 @@ import { Snowflake } from 'nodejs-snowflake';
 import { verifyAuthJWT, createAuthJWT } from '@/server/jwt';
 import { db } from '@/server/db';
 import { followers, likes, lynts, notifications, users, history, messages } from '@/server/schema';
-import { eq, inArray, sql } from 'drizzle-orm';
+import { and, eq, sql } from 'drizzle-orm';
 import { minioClient } from '@/server/minio';
 import { deleteLynt, uploadAvatar } from '../util';
 import { readFileSync } from 'fs';
@@ -266,21 +266,26 @@ export const GET: RequestHandler = async ({ url }) => {
 
 		const response = await db
 			.select({
-			    id: users.id,
-			    handle: users.handle,
-			    created_at: users.created_at,
-			    username: users.username,
-			    iq: users.iq,
-			    verified: users.verified,
-			    bio: users.bio,
-			    followers_count: db.count().from(followers).where(eq(followers.user_id, users.id)),
-			    following_count: db.count().from(followers).where(eq(followers.follower_id, users.id))
+				id: users.id,
+				handle: users.handle,
+				created_at: users.created_at,
+				username: users.username,
+				iq: users.iq,
+				verified: users.verified,
+				bio: users.bio,
+				followers_count: sql`(SELECT COUNT(*) FROM ${followers} WHERE ${followers.user_id} = ${users.id})`.as('followers_count'),
+				following_count: sql`(SELECT COUNT(*) FROM ${followers} WHERE ${followers.follower_id} = ${users.id})`.as('following_count'),
 			})
 			.from(users)
-			.where(and(eq(userHandle, users.handle), eq(users.banned, false))
-			.or(and(eq(userId, users.id), eq(users.banned, false)))
+			.where(
+				and(
+					userHandle ? eq(users.handle, userHandle) : eq(users.id, userId!),
+					eq(users.banned, false)
+				)
+			)
 			.limit(1);
-		const user = response[0]
+		
+		const user = response[0];
 		if (!user) {
 			return json({ error: 'User not found' }, { status: 404 });
 		}
