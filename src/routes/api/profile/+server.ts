@@ -213,7 +213,8 @@ export const POST: RequestHandler = async ({
 		const cleanedHandle = body.handle.replace(/[^0-9a-z_-]/gi, '').toLowerCase();
 
 		const jwt = await createAuthJWT({
-			userId: uniqueUserId
+			userId: uniqueUserId,
+			timestamp: Date.now()
 		});
 
 		const [newLynt] = await db
