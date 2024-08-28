@@ -101,13 +101,12 @@
 										>{user.iq}</span
 									>
 								</div>
-								<p class="text-sm text-muted-foreground">
-									<button
+								<p>
+									<a class="text-sm text-muted-foreground inline-block" role="button"
 										on:click={() => {
 											current_page.set(`profile${user.handle}`);
 											goto(`/@${user.handle}`, { replaceState: true, noScroll: true });
-										}}>@{user.handle}</button
-									>
+										}} tabindex="0" on:keydown on:keyup href="/@{user.handle}">@{user.handle}</a>
 								</p>
 							</div>
 						</div>
