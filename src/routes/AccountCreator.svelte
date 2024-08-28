@@ -105,12 +105,12 @@
 						class="border-primary focus-visible:ring-0 focus-visible:ring-offset-0"
 						bind:value={username}
 						on:input={() => {
-							username = '@' + username.replace(/[^0-9a-z_-]/gi, '').toLowerCase();
+							username = '@' + username.replace(/[^0-9a-z_.-]/gi, '').toLowerCase();
 						}}
 					/>
 					<p class="text-sm text-muted-foreground">Enter your permanent username (max. 32 char.)</p>
 					<p class="text-xs text-muted-foreground">
-						Only alphabetical lowercase letters (a-z) work, including '-'.
+						Only letters (a-z), numbers (0-9), underscores (_), dashes (-), or periods (.) are supported.
 					</p>
 				</div>
 

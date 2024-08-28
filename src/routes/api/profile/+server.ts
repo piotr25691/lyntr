@@ -210,7 +210,7 @@ export const POST: RequestHandler = async ({
 		});
 		const uniqueUserId = String(userId.getUniqueID());
 
-		const cleanedHandle = body.handle.replace(/[^0-9a-z_-]/gi, '').toLowerCase();
+		const cleanedHandle = body.handle.replace(/[^0-9a-z_.-]/gi, '').toLowerCase();
 
 		const jwt = await createAuthJWT({
 			userId: uniqueUserId,
