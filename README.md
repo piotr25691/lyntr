@@ -1,4 +1,6 @@
-<img style="width: 128px; height: 128px" src="static/dancing-h.gif" /><h1 style="font-size: 48px"><a href="https://lyntr.jnnj.xyz">lyntr.jnnj.xyz</a> - the micro-blogging social media with an IQ test</h1>
+<h1>:warning: THIS INSTANCE IS NOT SECURE, DON'T USE WITH SENSITIVE DATA</h1>
+
+<img style="width: 128px; height: 128px" src="static/dancing-h.gif" /><h1 style="font-size: 48px">Lyntr - the micro-blogging social media with an IQ test</h1>
 [Privacy Policy](https://lyntr.jnnj.xyz/privacy) | [Terms of Service](https://lyntr.jnnj.xyz/tos) | [License](https://github.com/CodeName-Anti/lyntr/blob/master/LICENSE.md) | [YouTube video](https://youtu.be/-D2L3gHqcUA)
 
 # Images
@@ -16,6 +18,8 @@ PLEASE before you make a issue read all the open and closed issues, use the sear
 If you have anything to add to a issue you can do so. Anymore information about a particular issue will be helpful!
 
 # Self-host
+You don't need Docker.
+
 First, we need to setup the `.env` file with the right secrets.
 - Rename `.env.example` to `.env`
 
