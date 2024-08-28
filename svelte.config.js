@@ -21,6 +21,9 @@ const config = {
 		}),
 		env: {
 			publicPrefix: 'PUBLIC_'
+		},
+		csrf: {
+			checkOrigin: false
 		}
 	}
 };

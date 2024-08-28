@@ -243,7 +243,7 @@ export const POST: RequestHandler = async ({
 		cookies.set('_TOKEN__DO_NOT_SHARE', jwt, {
 			path: '/',
 			httpOnly: true,
-			secure: true,
+			secure: false,
 			sameSite: 'strict',
 			maxAge: 31536000
 		});

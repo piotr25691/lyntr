@@ -16,7 +16,7 @@ export const GET: RequestHandler = async ({ request, url, cookies }) => {
 		formData.set('grant_type', 'authorization_code');
 		formData.set('code', code);
 		url.search = '';
-		if (url.port == '') url.protocol = 'https://';
+		url.protocol = 'http://';
 		formData.set('redirect_uri', url.toString());
 
 		const codeRes = await fetch('https://discord.com/api/v10/oauth2/token', {
@@ -31,7 +31,7 @@ export const GET: RequestHandler = async ({ request, url, cookies }) => {
 		});
 		console.log(formData);
 
-		if (codeRes.status != 200) return json({ errror: 'Invalid state' }, { status: 400 });
+		if (codeRes.status != 200) return json(await codeRes.json(), { status: 400 });
 		const data = await codeRes.json();
 
 		const accessToken = data['access_token'];
@@ -58,7 +58,7 @@ export const GET: RequestHandler = async ({ request, url, cookies }) => {
 			cookies.set('_TOKEN__DO_NOT_SHARE', jwt, {
 				path: '/',
 				httpOnly: true,
-				secure: true,
+				secure: false,
 				sameSite: 'strict',
 				maxAge: 31536000
 			});
