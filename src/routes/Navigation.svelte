@@ -77,7 +77,7 @@
 	class="inline-flex w-full flex-row items-start gap-2 rounded-[12px] bg-border p-[12px] md:min-w-[250px] md:flex-col"
 >
 	<button class="flex w-full items-center justify-center md:hidden" on:click={goHome}>
-		<img class="size-8 cursor-pointer" src="/dancing-h.gif" alt="Logo" />
+		<img class="size-8 cursor-pointer" src="/logo.svg" alt="Logo" />
 	</button>
 
 	{#each navItems as item}

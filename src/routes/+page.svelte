@@ -110,12 +110,8 @@
 		<meta name="twitter:card" content="summary_large_image" />
 
 		<meta property="og:type" content="website" />
-
-		{#if data.lynt.has_image}
-			<meta property="og:image" content="https://cdn.jnnj.xyz/lyntr/{data.lynt.id}.webp" />
-		{/if}
-
-		<meta property="og:url" content="https://lyntr.jnnj.xyz/?id={data.lynt.id}" />
+		<meta property="og:image" content="https://cdn.lyntr.com/lyntr/{data.lynt.id}.webp" />
+		<meta property="og:url" content="https://lyntr.com/?id={data.lynt.id}" />
 
 		{#if data.lynt.parentUserHandle === null}
 			<meta property="og:description" content={data.lynt.content} />
@@ -131,12 +127,6 @@
 			/>
 		{/if}
 
-	{:else}
-		<meta property="og:title" content="H Lyntr"/>
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://lyntr.jnnj.xyz/" />
-		<meta property="og:description" content="Hello, this is a selfhosted instance of lyntr by jnnj. Join for h" />
-		<meta property="og:image" content="https://lyntr.jnnj.xyz/dancing-h.gif" />
+		<meta name="description" content="Lyntr is a micro-blogging social media with an IQ test." />
 	{/if}
-	<meta name="description" content="Hello, this is a selfhosted instance of lyntr by jnnj. Join for h" />
 </svelte:head>
