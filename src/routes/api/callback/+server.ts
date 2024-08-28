@@ -41,7 +41,7 @@ export const GET: RequestHandler = async ({ request, url, cookies }) => {
 			}
 		});
 
-		if (meRes.status != 200) return json({ errror: 'Invalid user' }, { status: 400 });
+		if (meRes.status != 200) return json({ await meRes.json() }, { status: 400 });
 		const meBody = await meRes.json();
 
 		const existingUser = await db
